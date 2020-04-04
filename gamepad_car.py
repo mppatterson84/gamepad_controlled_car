@@ -10,7 +10,7 @@ bluepwm = PWMLED(11)
 steering = Motor(forward=4, backward=14)
 motor = Motor(forward=17, backward=18)
 
-# initializes pygame
+# initialize pygame
 pygame.init()
 
 controller = ''
@@ -18,9 +18,9 @@ controller = ''
 try:
     while controller == '':
         try:
-            # creates a controller object
+            # create a controller object
             controller = pygame.joystick.Joystick(0)
-            # initializes the controller
+            # initialize the controller
             controller.init()
             print("car started")
             print("press ctrl + c to exit")
