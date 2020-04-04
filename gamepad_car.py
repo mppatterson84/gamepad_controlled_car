@@ -29,6 +29,7 @@ try:
             print('Please connect a controller. Restart in 10 seconds.')
             print("press ctrl + c to exit")
             bluepwm.pulse()
+            redpwm.pulse()
             sleep(10)
             subprocess.call(["lxterminal", "--command=python3 gamepad_car.py"])
             exit()
