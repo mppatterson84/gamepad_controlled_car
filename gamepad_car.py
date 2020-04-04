@@ -3,9 +3,9 @@ import pygame
 import subprocess
 from time import sleep
 
-redpwm = PWMLED(9)
-greenpwm = PWMLED(10)
-bluepwm = PWMLED(11)
+red = PWMLED(9)
+green = PWMLED(10)
+blue = PWMLED(11)
 
 steering = Motor(forward=4, backward=14)
 drive = Motor(forward=17, backward=18)
@@ -24,12 +24,12 @@ try:
             controller.init()
             print("car started")
             print("press ctrl + c to exit")
-            greenpwm.value = 0.5
+            green.value = 0.5
         except:
             print('Please connect a controller. Restart in 10 seconds.')
             print("press ctrl + c to exit")
-            bluepwm.pulse()
-            redpwm.pulse()
+            blue.pulse()
+            red.pulse()
             sleep(10)
             subprocess.call(
                 ["lxterminal", "--command=python3 gamepad_controlled_car/gamepad_car.py"])
@@ -99,20 +99,20 @@ try:
                     print("Right Analog (R3) Pressed")
 
                 if speed == 1.0:
-                    greenpwm.value = 0.10
-                    redpwm.value = 0.0
+                    green.value = 0.10
+                    red.value = 0.0
                 elif speed >= 0.9:
-                    greenpwm.value = 0.07
-                    redpwm.value = 0.03
+                    green.value = 0.07
+                    red.value = 0.03
                 elif speed >= 0.8:
-                    greenpwm.value = 0.04
-                    redpwm.value = 0.06
+                    green.value = 0.04
+                    red.value = 0.06
                 elif speed >= 0.7:
-                    greenpwm.value = 0.02
-                    redpwm.value = 0.08
+                    green.value = 0.02
+                    red.value = 0.08
                 elif speed >= 0.6:
-                    greenpwm.value = 0.0
-                    redpwm.value = 0.10
+                    green.value = 0.0
+                    red.value = 0.10
 
             elif event.type == pygame.JOYBUTTONUP:
                 print("Button Released")
@@ -120,8 +120,8 @@ try:
 
 except KeyboardInterrupt:
     print("ending program")
-    greenpwm.value = 0
-    redpwm.value = 0
-    bluepwm.value = 0
+    green.value = 0
+    red.value = 0
+    blue.value = 0
     controller.quit()
     pygame.quit()
