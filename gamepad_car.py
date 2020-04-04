@@ -8,7 +8,7 @@ greenpwm = PWMLED(10)
 bluepwm = PWMLED(11)
 
 steering = Motor(forward=4, backward=14)
-motor = Motor(forward=17, backward=18)
+drive = Motor(forward=17, backward=18)
 
 # initialize pygame
 pygame.init()
@@ -77,16 +77,16 @@ try:
                     print("L1 Pressed")
                 elif controller.get_button(5):
                     print("R1 Pressed")
-                    motor.backward()
+                    drive.backward()
                 elif controller.get_button(6):
                     print("L2 Pressed")
-                    motor.backward(speed)
+                    drive.backward(speed)
                 elif controller.get_button(7):
                     print("R2 Pressed")
-                    motor.forward(speed)
+                    drive.forward(speed)
                     if controller.get_button(5):
                         print("R1 Pressed")
-                        motor.backward()
+                        drive.backward()
                 elif controller.get_button(8):
                     print("SHARE Pressed")
                 elif controller.get_button(9):
@@ -116,7 +116,7 @@ try:
 
             elif event.type == pygame.JOYBUTTONUP:
                 print("Button Released")
-                motor.stop()
+                drive.stop()
 
 except KeyboardInterrupt:
     print("ending program")
