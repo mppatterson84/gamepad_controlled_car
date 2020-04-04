@@ -37,7 +37,6 @@ except KeyboardInterrupt:
     exit()
 
 speed = 1.0
-shutdown = 5
 
 try:
     while True:
