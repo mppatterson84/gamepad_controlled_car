@@ -31,7 +31,8 @@ try:
             bluepwm.pulse()
             redpwm.pulse()
             sleep(10)
-            subprocess.call(["lxterminal", "--command=python3 gamepad_car.py"])
+            subprocess.call(
+                ["lxterminal", "--command=python3 gamepad_controlled_car/gamepad_car.py"])
             exit()
 except KeyboardInterrupt:
     print("ending program")
